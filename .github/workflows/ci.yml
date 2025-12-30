@@ -26,10 +26,11 @@ jobs:
     needs: lint
     runs-on: ubuntu-latest
 
+    env:
+      SECRET_KEY: ${{ secrets.SECRET_KEY }}
+
     steps:
       - name: Check out code
-        env:
-          SECRET_KEY: ${{ secrets.SECRET_KEY }}
         uses: actions/checkout@v3
 
       - name: Set up Python
